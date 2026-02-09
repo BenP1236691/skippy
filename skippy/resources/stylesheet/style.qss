@@ -1,4 +1,15 @@
 /*
+ * General
+ */
+QWidget {
+  outline: none;
+}
+
+QMainWindow {
+    background-color: palette(window);
+}
+
+/*
  * QGroupBox
  */
 
@@ -6,10 +17,14 @@ QGroupBox {
   background-color: palette(alternate-base);
   border: 1px solid palette(midlight);
   margin-top: 25px;
+  border-radius: 4px;
 }
 
 QGroupBox::title {
     background-color: transparent;
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 0 5px;
 }
 
 /*
@@ -18,20 +33,24 @@ QGroupBox::title {
 
 QToolBar {
   border: none;
+  background-color: palette(window);
+  spacing: 5px;
+  padding: 5px;
 }
 
 /*
  * QTabBar
  */
 
-QTabBar{
+QTabBar {
   background-color: transparent;
 }
 
-QTabBar::tab{
-  padding: 4px 6px;
+QTabBar::tab {
+  padding: 6px 10px;
   background-color: transparent;
   border-bottom: 2px solid transparent;
+  margin-right: 2px;
 }
 
 QTabBar::tab:selected, QTabBar::tab:hover {
@@ -51,61 +70,42 @@ QScrollBar:vertical {
   background: palette(base);
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
-  width: 16px;
+  width: 12px;
   margin: 0px;
 }
 
 QScrollBar::handle:vertical {
   background-color: palette(midlight);
-  border-radius: 2px;
+  border-radius: 6px;
   min-height: 20px;
-  margin: 2px 4px 2px 4px;
+  margin: 2px;
 }
 
 QScrollBar::handle:vertical:hover, QScrollBar::handle:horizontal:hover, QScrollBar::handle:vertical:pressed, QScrollBar::handle:horizontal:pressed {
-  background-color:palette(highlight);
+  background-color: palette(highlight);
 }
 
-QScrollBar::add-line:vertical {
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
   background: none;
   height: 0px;
-  subcontrol-position: right;
-  subcontrol-origin: margin;
 }
 
-QScrollBar::sub-line:vertical {
-  background: none;
-  height: 0px;
-  subcontrol-position: left;
-  subcontrol-origin: margin;
-}
-
-QScrollBar:horizontal{
+QScrollBar:horizontal {
   background: palette(base);
-  height: 16px;
+  height: 12px;
   margin: 0px;
 }
 
 QScrollBar::handle:horizontal {
   background-color: palette(midlight);
-  border-radius: 2px;
+  border-radius: 6px;
   min-width: 20px;
-  margin: 4px 2px 4px 2px;
+  margin: 2px;
 }
 
-
-QScrollBar::add-line:horizontal {
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
   background: none;
   width: 0px;
-  subcontrol-position: bottom;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:horizontal {
-  background: none;
-  width: 0px;
-  subcontrol-position: top;
-  subcontrol-origin: margin;
 }
 
 /*
@@ -124,25 +124,177 @@ QScrollArea > QWidget > QWidget {
  * QSlider
  */
 
+QSlider::groove:horizontal {
+    border: 1px solid palette(midlight);
+    height: 8px;
+    background: palette(base);
+    margin: 2px 0;
+    border-radius: 4px;
+}
+
 QSlider::handle:horizontal {
-  border-radius: 5px;
-  background-color: palette(light);
-  max-height: 20px;
+    background: palette(highlight);
+    border: 1px solid palette(midlight);
+    width: 18px;
+    height: 18px;
+    margin: -5px 0;
+    border-radius: 9px;
 }
 
 QSlider::add-page:horizontal {
-  background: palette(base);
+    background: palette(base);
+    border-radius: 4px;
 }
 
 QSlider::sub-page:horizontal {
-  background: palette(highlight);
+    background: palette(highlight);
+    border-radius: 4px;
 }
 
-QSlider::sub-page:horizontal:disabled {
-  background-color: palette(light);
-}
+/*
+ * QTableView
+ */
 
 QTableView {
-  background-color: palette(link-visited);
-  alternate-background-color: palette(midlight);
+  background-color: palette(base);
+  alternate-background-color: palette(alternate-base);
+  border: 1px solid palette(midlight);
+  gridline-color: palette(midlight);
+  selection-background-color: palette(highlight);
+  selection-color: palette(highlighted-text);
+}
+
+QHeaderView::section {
+    background-color: palette(alternate-base);
+    color: palette(text);
+    padding: 4px;
+    border: 1px solid palette(midlight);
+}
+
+/*
+ * Buttons
+ */
+
+QPushButton {
+    background-color: palette(button);
+    border: 1px solid palette(midlight);
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: palette(button-text);
+}
+
+QPushButton:hover {
+    background-color: palette(midlight);
+    border: 1px solid palette(highlight);
+}
+
+QPushButton:pressed {
+    background-color: palette(dark);
+}
+
+QPushButton:disabled {
+    background-color: palette(window);
+    color: palette(button-text);
+    border: 1px solid palette(midlight);
+}
+
+/*
+ * Input Fields
+ */
+
+QLineEdit, QTextEdit, QPlainTextEdit {
+    background-color: palette(base);
+    border: 1px solid palette(midlight);
+    border-radius: 4px;
+    padding: 4px;
+    color: palette(text);
+    selection-background-color: palette(highlight);
+    selection-color: palette(highlighted-text);
+}
+
+QLineEdit:focus, QTextEdit:focus, QPlainTextEdit:focus {
+    border: 1px solid palette(highlight);
+}
+
+/*
+ * Menu
+ */
+
+QMenuBar {
+    background-color: palette(window);
+    border-bottom: 1px solid palette(midlight);
+}
+
+QMenuBar::item {
+    spacing: 3px;
+    padding: 4px 8px;
+    background: transparent;
+    border-radius: 4px;
+}
+
+QMenuBar::item:selected {
+    background-color: palette(highlight);
+    color: palette(highlighted-text);
+}
+
+QMenu {
+    background-color: palette(base);
+    border: 1px solid palette(midlight);
+    padding: 4px;
+}
+
+QMenu::item {
+    padding: 4px 24px 4px 8px;
+    border-radius: 4px;
+}
+
+QMenu::item:selected {
+    background-color: palette(highlight);
+    color: palette(highlighted-text);
+}
+
+QMenu::separator {
+    height: 1px;
+    background: palette(midlight);
+    margin: 4px 8px;
+}
+
+/*
+ * Status Bar
+ */
+
+QStatusBar {
+    background-color: palette(window);
+    border-top: 1px solid palette(midlight);
+}
+
+QStatusBar::item {
+    border: none;
+}
+
+/*
+ * ComboBox
+ */
+
+QComboBox {
+    background-color: palette(button);
+    border: 1px solid palette(midlight);
+    border-radius: 4px;
+    padding: 4px;
+    min-width: 6em;
+}
+
+QComboBox:hover {
+    border: 1px solid palette(highlight);
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left-width: 1px;
+    border-left-color: palette(midlight);
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
 }
