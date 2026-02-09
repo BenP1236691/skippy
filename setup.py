@@ -70,8 +70,8 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=requirements,
     extras_require={
-        "preview": ["PyQtWebEngine==5.15.5"],
-        "ftml": ["PyQtWebEngine==5.15.5", "pyftml==0.1.2"],
+        "preview": ["PyQtWebEngine==5.15.7"],
+        "ftml": ["PyQtWebEngine==5.15.7", "pyftml==0.1.2"],
     },
     package_dir={"skippy": "skippy"},
     package_data={
