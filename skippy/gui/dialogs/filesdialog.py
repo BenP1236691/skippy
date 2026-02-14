@@ -19,7 +19,6 @@ class FilesDialog(QtWidgets.QDialog):
         self.label = QtWidgets.QLabel(
             translator.Translator().translate("DIALOG.FILES_LIST_LABEL"), self
         )
-        self.label.setFont(QtGui.QFont("Arial", 10))
 
         self.scrollArea = QtWidgets.QScrollArea()
         self.scrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)

@@ -10,8 +10,7 @@ class LoginStatus(QtWidgets.QLabel):
         super(LoginStatus, self).__init__(parent)
         self.setFixedWidth(self.width() + 100)
         self.updateStatus(filehandlers.ProfileHandler().load()[0])
-
-        self.setStyleSheet("font-family: Arial; font-size:10pt;")
+        self.setObjectName("LoginStatus")
 
     def updateStatus(self, username: str):
         if username:

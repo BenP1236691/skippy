@@ -60,10 +60,6 @@ class PluginDialog(QtWidgets.QDialog):
         self.move(300, 300)
         self.resize(400, 300)
 
-        self.setStyleSheet(
-            "QLabel, QLineEdit, QPlainTextEdit {font-family: Arial; font-size:10pt;}"
-        )
-
         self.show()
 
     def updateSettings(self):

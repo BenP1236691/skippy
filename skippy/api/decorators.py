@@ -27,8 +27,8 @@ class Call:
 
 def decorator(deco):
     """Transforms a flat wrapper into decorator."""
-    spec = inspect.getargspec(deco)
-    if len(spec.args) > 1 or spec.varargs or spec.keywords:
+    spec = inspect.getfullargspec(deco)
+    if len(spec.args) > 1 or spec.varargs or spec.varkw:
 
         @functools.wraps(deco)
         def _fab(*dargs, **dkwargs):

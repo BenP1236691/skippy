@@ -299,6 +299,9 @@ class ToolBar(ActionBarBase, QtWidgets.QToolBar):
         self.addAction(self.select_all_action)
         self.addAction(self.preview_action)
 
+        self.setIconSize(QtCore.QSize(18, 18))
+        self.setMovable(False)
+        self.setFloatable(False)
         self.setAllowedAreas(QtCore.Qt.LeftToolBarArea | QtCore.Qt.TopToolBarArea)
 
 

@@ -60,7 +60,7 @@ class Skippy(QtWidgets.QMainWindow):
         self.move(self.settings.pos)
         self.setWindowState(QtCore.Qt.WindowState(self.settings.state))
 
-        self.setFont(QtGui.QFont("Arial", 10))
+        self.setFont(QtGui.QFont("IBM Plex Sans", 10))
 
         if self.settings.theme == "light":
             styles.light()

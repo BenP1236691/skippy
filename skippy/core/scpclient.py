@@ -3,10 +3,29 @@
 from skippy.api import Singleton, PageData, critical, ignore
 
 from urllib.parse import urlparse
-from pyscp.wikidot import Wiki
 from typing import Optional
-import requests
 import base64
+import inspect
+from types import SimpleNamespace
+
+import requests
+
+
+# pyscp (and some of its dependencies) still use inspect.getargspec,
+# which was removed in Python 3.13. Provide a compatibility shim before import.
+if not hasattr(inspect, "getargspec"):
+    def _getargspec(func):
+        spec = inspect.getfullargspec(func)
+        return SimpleNamespace(
+            args=spec.args,
+            varargs=spec.varargs,
+            keywords=spec.varkw,
+            defaults=spec.defaults,
+        )
+
+    inspect.getargspec = _getargspec  # type: ignore[attr-defined]
+
+from pyscp.wikidot import Wiki
 
 
 RequestException = requests.exceptions.RequestException

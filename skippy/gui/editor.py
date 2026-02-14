@@ -297,7 +297,6 @@ class Completer(QtWidgets.QCompleter):
         self.popup().clicked.connect(lambda index: self.insertText.emit(index.data()))
         self.insertText.connect(parent.insertCompletion)
 
-        self.popup().setStyleSheet("font-family:Arial; font-size:10pt;")
 
     def setSelected(self, text: str):
         self.lastSelected = text
@@ -355,11 +354,15 @@ class AdvancedEditor(QtWidgets.QPlainTextEdit):
 
         popup = self.completer.popup()
         popup.setCurrentIndex(self.completer.completionModel().index(0, 0))
+        popup.setUniformItemSizes(True)
 
         rect = self.cursorRect()
         rect.setWidth(
             popup.sizeHintForColumn(0) + popup.verticalScrollBar().sizeHint().width()
         )
+        # Keep popup height proportional to number of options: 32px per item.
+        rows = self.completer.completionModel().rowCount()
+        popup.setFixedHeight(max(32, rows * 32 + 2))
         self.completer.complete(rect)
 
     def suggestingBlockParams(self):

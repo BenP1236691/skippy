@@ -32,7 +32,7 @@ class ProjectList(QtWidgets.QTabWidget):
         )
 
         self.setStyleSheet(
-            "QTabBar{font-family: Arial; font-size:10pt;} QTabBar::close-button {image: url(:"
+            "QTabBar::close-button {image: url(:"
             + settings.Settings().theme
             + "/close.png);}"
         )
@@ -127,6 +127,8 @@ class TabWidget(QtWidgets.QWidget):
     ):
         super(TabWidget, self).__init__(parent)
         self._layout = QtWidgets.QVBoxLayout(self)
+        self._layout.setContentsMargins(16, 12, 16, 16)
+        self._layout.setSpacing(10)
 
         self.pdata: PageData = {
             "title": title,
@@ -168,9 +170,6 @@ class TabWidget(QtWidgets.QWidget):
         self._layout.addWidget(self.files_button)
         self.setLayout(self._layout)
 
-        self.setStyleSheet(
-            "QLineEdit, QPlainTextEdit {font-family: Arial; font-size:12pt;}"
-        )
 
     def editorStats(self) -> Tuple[int, int]:
         content = self.editor.toPlainText()
