@@ -20,20 +20,11 @@
 </p>
 
 <h3 align="center">
-Skippy - Simple. Comfortable. Powerful. notepad for www.scpwiki.com
+Skippy Maintained!
 </h3>
 
-<h2>
-Installation
-</h2>
 
-If you have Python 3.7 or later you can install Skippy using pip:
-
-```
-$ python -m pip install skippy-pad
-```
-
-Also, if you haven't Python you can install compiled Skippy through <a href="https://github.com/skippy-dev/skippy/releases">Github releases</a>.
+You can install compiled Skippy through <a href="https://github.com/benp1236691/skippy/releases">Github releases</a>.
 
 <h2>
 Usage
@@ -88,17 +79,8 @@ Author
 
 * <a href="https://github.com/MrNereof">MrNereof</a> - owner of Skippy.
 * <a href="http://www.wikidot.com/user:info/the-great-hippo">The Great Hippo</a> - original creator <a href="http://scpwiki.com/your-very-first-scp">Skippy as a character</a>.
+* <a href="https://github.com/BenP1236691">BenP1236691</a> - Updating Skippy.
 
-<h2>
-Donating
-</h2>
-
-* Buy me a coffee:
-
-<a href="https://www.buymeacoffee.com/mrnereof" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
-* Cryptocurrencies:
-  * Binance Smart Chain (BSC) - 0x581cc7acbe921b1fa9fccbbfe008c86f68bc097d (BTC, ETH, DOGE and etc.)
 
 ## Sponsors
 
